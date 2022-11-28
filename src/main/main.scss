@@ -1,0 +1,17 @@
+.main-content {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  &__list {
+    height: 100%;
+    width: 500px;
+  }
+
+  &__info {
+    height: 100%;
+    flex-grow: 1;
+    width: 100%;
+  }
+}

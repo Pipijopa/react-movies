@@ -1,13 +1,63 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+    height: 100%;
+    font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    height: 100%;
+    min-height: 100%;
+    font: normal 400 15px/24px 'Roboto', sans-serif;
+    background-color: #f6f7f8;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #336fee;
+    outline: none;
+    text-decoration: none;
+}
+
+/* Стили для кнопок. Мы ведь порядочные разработчики, негоже простые ссылки оставлять */
+
+button {
+    padding: 8px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #414b52;
+    margin: 10px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+a:hover {
+    color: #6e87e1;
+}
+
+img {
+    width: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+::-ms-clear {
+    display: none;
+}
+
+::-ms-reveal {
+    display: none;
 }
