@@ -1,4 +1,13 @@
+.movie-list {
+    height: 100%;
+    width: 100%;
+}
+
 .list {
-  height: 100%;
-  width: 500px;
+    height: calc(100% - 128px);
+    overflow: auto;
+}
+
+.list-panel {
+    margin-top: 8px;
 }

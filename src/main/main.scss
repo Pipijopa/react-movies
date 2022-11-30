@@ -1,17 +1,19 @@
 .main-content {
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+    min-height: calc(100% - 56px);
+    height: calc(100% - 56px);
+    display: flex;
+    flex-flow: row nowrap;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
 
-  &__list {
-    height: 100%;
-    width: 500px;
-  }
+    &__list {
+        width: 500px;
+        padding: 16px;
+        border-right: 1px solid #d9d9d9;
+    }
 
-  &__info {
-    height: 100%;
-    flex-grow: 1;
-    width: 100%;
-  }
+    &__info {
+        flex-grow: 1;
+        padding: 16px;
+    }
 }
