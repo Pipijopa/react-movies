@@ -8,12 +8,12 @@ export const MovieList = () => {
     return (
         <div className="movie-list">
             <Search />
-            <div className="list scroll">
+            <section className="list scroll">
                 <List key={''}></List>
-            </div>
-            <div className="list-panel">
+            </section>
+            <section className="list-panel">
                 <ListPanel />
-            </div>
+            </section>
         </div>
     );
 };

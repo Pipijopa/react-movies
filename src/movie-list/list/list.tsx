@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MovieCard from './movie-card/movie-card';
+import MovieCard from '../movie-card/movie-card';
 import './list.scss';
 
 const mockData = [
@@ -161,7 +161,7 @@ const mockData = [
     },
 ];
 
-export const List = (props) => {
+export const List = () => {
     const [state, setState] = useState(mockData);
 
     const handleClick = (id) => {

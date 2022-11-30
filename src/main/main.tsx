@@ -9,14 +9,16 @@ export const Main = () => {
         .then((data) => console.log(data));
 
     return (
-        <div className="main-content container">
-            <div className="main-content__list">
-                <MovieList />
-            </div>
+        <main className="main-content container">
+            <aside>
+                <div className="main-content__list">
+                    <MovieList />
+                </div>
 
-            <div className="main-content__info">
-                <InfoContent />
-            </div>
-        </div>
+                <div className="main-content__info">
+                    <InfoContent />
+                </div>
+            </aside>
+        </main>
     );
 };
