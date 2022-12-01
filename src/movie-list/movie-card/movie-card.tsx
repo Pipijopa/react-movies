@@ -1,23 +1,24 @@
 import React from 'react';
 import {MovieView} from '../../types/movie';
-import './movie-card.scss';
+import styles from './movie-card.module.scss';
+import cn from 'classnames';
 
-export const MovieCard = ({card}: {card: MovieView}) => {
-    const {title, year, genres} = card;
+export const MovieCard: React.FC<{card: MovieView}> = ({card}) => {
+  const {title, year, genres} = card;
 
-    return (
-        <article className={`card ${card.selected ? 'card_selected' : ''}`}>
-            <h3 className="card__title">{title}</h3>
-            <div className="card__info">
-                <span>{year}</span>
-                <ul>
-                    {genres.map((item) => (
-                        <li key={item}>{item}</li>
-                    ))}
-                </ul>
-            </div>
-        </article>
-    );
+  return (
+    <article className={cn(styles.card, {[styles.card_selected]: card.selected})}>
+      <h3 className={styles.card__title}>{title}</h3>
+      <div className={styles.card__info}>
+        <span>{year}</span>
+        <ul>
+          {genres.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
 };
 
 export default MovieCard;

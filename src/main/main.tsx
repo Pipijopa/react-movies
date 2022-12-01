@@ -1,24 +1,26 @@
 import React from 'react';
-import {MovieList} from '../movie-list/movie-list';
-import {InfoContent} from '../info-content/info-content';
-import './main.scss';
+import MovieInfo from '../components/movie-info/movie-info';
+import Search from '../movie-list/search/search';
+import styles from './main.module.scss';
+import {Movie} from '../types/movie';
+import MovieList from '../movie-list/movie-list';
 
-export const Main = () => {
-    fetch('http://localhost:3001/movies')
-        .then((data) => data.json())
-        .then((data) => console.log(data));
+interface TMain {
+  selectMovie: any;
+  currentMovieId: string | null;
+  currentMovie: Movie | null;
+  handlerCurrentFilm: any;
+}
 
-    return (
-        <main className="main-content container">
-            <aside>
-                <div className="main-content__list">
-                    <MovieList />
-                </div>
+export const Main: React.FC<TMain> = ({selectMovie, currentMovieId, currentMovie, handlerCurrentFilm}) => {
+  return (
+    <main className={styles.mainContent}>
+      <aside className={styles.mainContent__list}>
+        <Search />
+        <MovieList handlerCurrentFilm={handlerCurrentFilm} selectMovie={selectMovie} currentMovieId={currentMovieId} />
+      </aside>
 
-                <div className="main-content__info">
-                    <InfoContent />
-                </div>
-            </aside>
-        </main>
-    );
+      {currentMovie ? <MovieInfo currentMovie={currentMovie} /> : 'Выберите фильм'}
+    </main>
+  );
 };

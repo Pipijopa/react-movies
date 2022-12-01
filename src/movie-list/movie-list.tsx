@@ -1,21 +1,23 @@
 import React from 'react';
-import './movie-list.scss';
+import styles from './movie-list.module.scss';
 import List from './list/list';
-import Search from './search/search';
 import ListPanel from './list-panel/list-panel';
+import {Movie} from '../types/movie';
 
-export const MovieList = () => {
-    return (
-        <div className="movie-list">
-            <Search />
-            <section className="list scroll">
-                <List key={''}></List>
-            </section>
-            <section className="list-panel">
-                <ListPanel />
-            </section>
-        </div>
-    );
+interface IMoveList {
+  handlerCurrentFilm: (movie: Movie) => void;
+  selectMovie: any;
+  currentMovieId: string;
+}
+
+export const MovieList: React.FC<IMoveList> = ({handlerCurrentFilm, selectMovie, currentMovieId}) => {
+  return (
+    <section className={styles.movieList}>
+      <List handlerCurrentFilm={handlerCurrentFilm} selectMovie={selectMovie} currentMovieId={currentMovieId} />
+
+      <ListPanel />
+    </section>
+  );
 };
 
 export default MovieList;

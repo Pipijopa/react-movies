@@ -1,13 +1,13 @@
 import Button from '../../components/button/button';
-import './search.scss';
+import styles from './search.module.scss';
 
 export const Search = () => {
-    return (
-        <form className="form">
-            <input className="control" type="text" name="search" placeholder="Введите название фильма" />
-            <Button title="Искать" secondary />
-        </form>
-    );
+  return (
+    <form className={styles.form}>
+      <input className={styles.control} type="text" name="search" placeholder="Введите название фильма" />
+      <Button secondary>Искать</Button>
+    </form>
+  );
 };
 
 export default Search;

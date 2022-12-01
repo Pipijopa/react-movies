@@ -1,19 +1,19 @@
 export interface Movie {
-    id: number;
-    title: string;
-    year: string;
-    runtime: string;
-    genres: ReadonlyArray<string>;
-    director: string;
-    actors: string;
-    plot: string;
-    posterUrl: string;
+  id: string;
+  title: string;
+  year: string;
+  runtime: string;
+  genres: ReadonlyArray<string>;
+  director: string;
+  actors: string;
+  plot: string;
+  posterUrl: string;
 }
 
-export type MovieList = ReadonlyArray<Movie>;
+export type TMovieList = ReadonlyArray<Movie>;
 
 export interface MovieView extends Movie {
-    selected: boolean;
+  selected: boolean;
 }
 
 export type MovieViewList = ReadonlyArray<MovieView>;

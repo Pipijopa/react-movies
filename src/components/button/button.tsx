@@ -1,17 +1,20 @@
 import React from 'react';
-import './button.scss';
+import styles from './button.module.scss';
+import cn from 'classnames';
 
 interface IButton {
-    title: string;
-    secondary?: boolean;
+  secondary?: boolean;
+  children: any;
 }
 
-export const Button = ({title, secondary}: IButton) => {
-    return (
-        <button className={`btn ${secondary ? 'btn_secondary' : 'btn_primary'}`} type="button">
-            {title}
-        </button>
-    );
+export const Button: React.FC<IButton> = ({secondary, children}) => {
+  return (
+    <button
+      className={cn(styles.btn, {[styles.btn_secondary]: secondary, [styles.btn_primary]: !secondary})}
+      type="button">
+      {children}
+    </button>
+  );
 };
 
 export default Button;

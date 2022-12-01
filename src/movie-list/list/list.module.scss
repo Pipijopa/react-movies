@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  height: calc(100% - 50px);
+  overflow: auto;
+}
+
+.listItem {
+  margin-top: 20px;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+.currentList {
+  background: #6e87e1;
+}

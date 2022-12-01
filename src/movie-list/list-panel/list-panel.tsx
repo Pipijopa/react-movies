@@ -1,13 +1,17 @@
+import {useContext} from 'react';
 import Button from '../../components/button/button';
-import './list-panel.scss';
+import {MovieContext} from '../../context/MovieContext';
+import styles from './list-panel.module.scss';
 
 export const ListPanel = () => {
-    return (
-        <div className="panel">
-            <span className="info">Найдено 7 элементов</span>
-            <Button title="+ Добавить" />
-        </div>
-    );
+  const {movies} = useContext(MovieContext);
+
+  return (
+    <div className={styles.panel}>
+      <span className={styles.info}>Найдено {movies.length} элементов</span>
+      <Button>+ Добавить</Button>
+    </div>
+  );
 };
 
 export default ListPanel;
