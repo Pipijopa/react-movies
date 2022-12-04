@@ -1,5 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
-import {fetchMovies} from '../app.service';
+import {fetchMovies} from '../components/App/App.service';
 import {TMovieList} from '../types/movie';
 
 export const MovieContext = createContext<any>(null);
@@ -12,7 +12,7 @@ export const MovieContextProvider = ({children}) => {
   useEffect(() => {
     setLoading(true);
 
-    fetchMovies('http://localhost:3001/movies')
+    fetchMovies('http://localhost:3010/movies')
       .then((movies) => {
         setMovies(movies);
       })

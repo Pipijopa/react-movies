@@ -1,7 +1,7 @@
-import Button from '../../components/button/button';
-import styles from './search.module.scss';
+import Button from '../../Button/Button';
+import styles from './MovieSearch.module.scss';
 
-export const Search = () => {
+export const MovieSearch = () => {
   return (
     <form className={styles.form}>
       <input className={styles.control} type="text" name="search" placeholder="Введите название фильма" />
@@ -10,4 +10,4 @@ export const Search = () => {
   );
 };
 
-export default Search;
+export default MovieSearch;

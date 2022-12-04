@@ -1,7 +1,7 @@
 import {useContext} from 'react';
-import Button from '../../components/button/button';
-import {MovieContext} from '../../context/MovieContext';
-import styles from './list-panel.module.scss';
+import Button from '../../Button/Button';
+import {MovieContext} from '../../../context/MovieContext';
+import styles from './ListPanel.module.scss';
 
 export const ListPanel = () => {
   const {movies} = useContext(MovieContext);

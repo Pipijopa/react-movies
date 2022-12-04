@@ -1,13 +1,13 @@
 import React from 'react';
-import {MovieView} from '../../types/movie';
-import styles from './movie-card.module.scss';
+import {MovieView} from '../../../types/movie';
+import styles from './MovieCard.module.scss';
 import cn from 'classnames';
 
-export const MovieCard: React.FC<{card: MovieView}> = ({card}) => {
+export const MovieCard: React.FC<{card: MovieView; active: boolean}> = ({card, active}) => {
   const {title, year, genres} = card;
 
   return (
-    <article className={cn(styles.card, {[styles.card_selected]: card.selected})}>
+    <article className={cn(styles.card, {[styles.card_selected]: active})}>
       <h3 className={styles.card__title}>{title}</h3>
       <div className={styles.card__info}>
         <span>{year}</span>

@@ -2,10 +2,15 @@
   width: 100%;
   height: calc(100% - 50px);
   overflow: auto;
+  margin: 16px 0;
 }
 
 .listItem {
-  margin-top: 20px;
+  cursor: pointer;
+
+  &:not(:first-child) {
+    margin-top: 20px;
+  }
 
   &:last-child {
     margin-bottom: 20px;
