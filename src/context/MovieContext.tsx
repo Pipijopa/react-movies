@@ -27,6 +27,7 @@ export const MovieContextProvider = ({children}) => {
 
   const contextValue = {
     movies,
+    setMovies,
     isLoading,
     error,
   };

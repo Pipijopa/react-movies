@@ -7,11 +7,9 @@ interface IButton {
   children: any;
 }
 
-export const Button: React.FC<IButton> = ({secondary, children}) => {
+export const Button: React.FC<any> = ({secondary, children, ...rest}) => {
   return (
-    <button
-      className={cn(styles.btn, {[styles.btn_secondary]: secondary, [styles.btn_primary]: !secondary})}
-      type="button">
+    <button className={cn(styles.btn, {[styles.btn_secondary]: secondary, [styles.btn_primary]: !secondary})} {...rest}>
       {children}
     </button>
   );

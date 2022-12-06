@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieInfo from '../MovieInfo/MovieInfo';
-import {PlugNotSelectMovie} from '../PlugNotSelectMovie/PlugNotSelectMovie';
+import {Header} from '../Header/Header';
+import {Outlet} from 'react-router-dom';
 import MovieSearch from '../MovieAside/MovieSearch/MovieSearch';
 import styles from './Main.module.scss';
 import {Movie} from '../../types/movie';
@@ -12,15 +12,19 @@ interface IMain {
   handlerCurrentFilm: (movie: Movie) => void;
 }
 
-export const Main: React.FC<IMain> = ({currentMovieId, currentMovie, handlerCurrentFilm}) => {
+export const Main: React.FC = () => {
   return (
-    <main className={styles.mainContent}>
-      <aside className={styles.mainContent__list}>
-        <MovieSearch />
-        <MovieAside handlerCurrentFilm={handlerCurrentFilm} currentMovieId={currentMovieId} />
-      </aside>
+    <>
+      <Header />
+      <main className={styles.mainContent}>
+        <aside className={styles.mainContent__list}>
+          <MovieSearch />
+          <MovieAside />
+        </aside>
 
-      {currentMovie ? <MovieInfo currentMovie={currentMovie} /> : <PlugNotSelectMovie />}
-    </main>
+        <Outlet />
+        {/*{currentMovie ? <MovieInfo currentMovie={currentMovie} /> : <PlugNotSelectMovie />}*/}
+      </main>
+    </>
   );
 };

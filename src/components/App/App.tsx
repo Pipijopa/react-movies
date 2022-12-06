@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import 'normalize.css';
-import {Header} from '../Header/Header';
 import './App.module.scss';
+import MovieInfo from '../../pages/MovieInfo';
 import {Main} from '../Main/Main';
-import {Movie} from '../../types/movie';
 import {MovieContextProvider} from '../../context/MovieContext';
+import {Routes, Route} from 'react-router-dom';
+import MovieEdit from '../../pages/MovieEdit';
 
 function App() {
-  const [currentMovie, setCurrentMovie] = useState<Movie | null>(null);
-  const selectMovie = (movie: Movie): void => setCurrentMovie(movie);
-
   return (
     <MovieContextProvider>
-      <Header />
-      <Main handlerCurrentFilm={selectMovie} currentMovie={currentMovie} currentMovieId={currentMovie?.id} />
+      <Routes>
+        <Route element={<Main />} path={'/*'}>
+          <Route path={'movie/:id'} element={<MovieInfo />}></Route>
+          <Route path={'movie/:id/edit'} element={<MovieEdit />}></Route>
+        </Route>
+      </Routes>
     </MovieContextProvider>
   );
 }

@@ -1,3 +1,3 @@
-export const fetchMovies = (url) => {
-  return fetch(url, null).then((response) => response.json());
+export const fetchMovies = (url, params = null) => {
+  return fetch(url, params).then((response) => response.json());
 };

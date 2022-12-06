@@ -9,10 +9,10 @@ interface IMoveList {
   currentMovieId: string;
 }
 
-export const MovieAside: React.FC<IMoveList> = ({handlerCurrentFilm, currentMovieId}) => {
+export const MovieAside: React.FC = () => {
   return (
     <section className={styles.movieList}>
-      <MovieList handlerCurrentFilm={handlerCurrentFilm} currentMovieId={currentMovieId} />
+      <MovieList />
 
       <ListPanel />
     </section>
