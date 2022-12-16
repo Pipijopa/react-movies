@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {MovieView} from '../../../types/movie';
 import styles from './MovieCard.module.scss';
 import cn from 'classnames';
 
-export const MovieCard: React.FC<{card: MovieView; active: boolean}> = ({card, active}) => {
+export const MovieCard: React.FC<{card: MovieView; active: boolean}> = memo(({card, active}) => {
   const {title, year, genres} = card;
 
   return (
@@ -19,6 +19,6 @@ export const MovieCard: React.FC<{card: MovieView; active: boolean}> = ({card, a
       </div>
     </article>
   );
-};
+});
 
 export default MovieCard;
