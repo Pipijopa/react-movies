@@ -1,10 +1,10 @@
 import React from 'react';
 import {Header} from '../Header/Header';
 import {Outlet} from 'react-router-dom';
-import MovieSearch from '../MovieAside/MovieSearch/MovieSearch';
+import MovieSearch from '../MovieComponents/MovieAside/MovieSearch/MovieSearch';
 import styles from './Main.module.scss';
 import {Movie} from '../../types/movie';
-import MovieAside from '../MovieAside/MovieAside';
+import MovieAside from '../MovieComponents/MovieAside/MovieAside';
 
 interface IMain {
   currentMovieId: string | null;
@@ -23,7 +23,7 @@ export const Main: React.FC = () => {
         </aside>
 
         <Outlet />
-        {/*{currentMovie ? <MovieInfo currentMovie={currentMovie} /> : <PlugNotSelectMovie />}*/}
+        {}
       </main>
     </>
   );

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
-import {fetchMovies} from '../components/App/App.service';
-import styles from '../components/MovieInfo/MovieInfo.module.scss';
+import {fetchMovies} from '../../../components/App/App.service';
+import styles from './MovieInfo.module.scss';
 
 const MovieInfo: React.FC = () => {
   const {id} = useParams();
@@ -20,18 +20,21 @@ const MovieInfo: React.FC = () => {
   if (currentMovie == null) return null;
 
   const imgError = (event) => {
-    event.target.src = 'https://via.placeholder.com/160x250'
+    event.target.src = 'https://imgholder.ru/300x450/000000/FFFFFF&text=Место+для+постера&fz=20'
   }
 
   return (
     <section className={styles.container}>
       <div className={styles.movieInfoHeader}>
-        <span>id: {id}</span>
-        <Link to={`/movie/${id}/edit`}>Редактировать</Link>
+        <span className={styles.idText}>Номер: {id}</span>
+
+        <Link className={styles.editLink} to={`/movie/${id}/edit`}> 
+          Редактировать
+        </Link>
       </div>
 
       <div className={styles.movieInfoBody}>
-        <img onError={imgError} width={'150'} height={'250'} src={currentMovie.posterUrl} alt={'Film poster'} />
+        <img onError={imgError} width={'300'} src={currentMovie.posterUrl} alt={'Film poster'} />
 
         <div className={styles.containerInfo}>
           <div>
@@ -40,15 +43,18 @@ const MovieInfo: React.FC = () => {
           </div>
 
           <div>
-            <h3 className={styles.titleInfo}>Параметры</h3>
+            <h3 className={styles.titleInfo}>O фильме</h3>
             <MovieInfoRow title={'Год производства'} value={currentMovie.year} />
             <MovieInfoRow title={'Актеры'} value={currentMovie.actors} />
-            <MovieInfoRow title={'Длительность фильма'} value={`${currentMovie.runtime} мин.`} />
+            <MovieInfoRow title={'Длительность фильма'} value={
+              `${currentMovie.runtime} мин. / `+
+              `${Math.floor(currentMovie.runtime/60)}:`+
+              `${currentMovie.runtime%60 > 9 ? `` : `0`}${currentMovie.runtime%60}`} />
             <MovieInfoRow
               title={'Жанры'}
-              value={currentMovie.genres.map((genre) => (
+              value={currentMovie.genres.map((genre, i) => (
                 <span key={genre} className={styles.genre}>
-                  {genre}
+                  {genre}{currentMovie.genres.length-1 === i ? '' : ','}
                 </span>
               ))}
             />
@@ -57,8 +63,8 @@ const MovieInfo: React.FC = () => {
       </div>
 
       <div>
-        <h3>Описание</h3>
-        <span>{currentMovie.plot}</span>
+        <h3 className={styles.descrTitle}>Описание</h3>
+        <span className={styles.descrText}>{currentMovie.plot}</span>
       </div>
     </section>
   );

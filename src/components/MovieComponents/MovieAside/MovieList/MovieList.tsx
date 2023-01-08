@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import styles from './MovieList.module.scss';
-import {MovieContext} from '../../../context/MovieContext';
+import {MovieContext} from '../../../../context/MovieContext';
 import {Link, useParams} from 'react-router-dom';
 
 export const MovieList = () => {
