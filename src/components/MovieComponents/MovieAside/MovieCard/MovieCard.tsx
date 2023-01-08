@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {MovieView} from '../../../types/movie';
+import {MovieView} from '../../../../types/movie';
 import styles from './MovieCard.module.scss';
 import cn from 'classnames';
 
@@ -10,7 +10,8 @@ export const MovieCard: React.FC<{card: MovieView; active: boolean}> = memo(({ca
     <article className={cn(styles.card, {[styles.card_selected]: active})}>
       <h3 className={styles.card__title}>{title}</h3>
       <div className={styles.card__info}>
-        <span>{year}</span>
+        <span className={styles.card__info__year}> {year}</span>
+        <span className={styles.card__info__separator}>|</span>
         <ul>
           {genres.map((item) => (
             <li key={item}>{item}</li>
